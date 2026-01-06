@@ -6,5 +6,4 @@ class AccessControlConfig(AppConfig):
     name = 'access_control'
     
     def ready(self):
-
         import access_control.signals

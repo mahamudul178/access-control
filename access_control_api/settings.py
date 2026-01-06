@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-l+nqrkzf*#=(ku1tmm*@a_@0py27c0e8*o_lnr@2hzi$k-a53%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -28,8 +28,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    #external apps
+    # Third-party apps
+    'django_filters',
     'rest_framework',
+    
+    # Local apps
     'access_control',
 ]
 
@@ -48,10 +51,11 @@ ROOT_URLCONF = 'access_control_api.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -109,3 +113,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# REST Framework 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+}
+
+
+LOG_FILE_PATH = BASE_DIR / 'system_events.log'
+
+
+
+
