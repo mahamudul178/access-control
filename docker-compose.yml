@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  # Django 
+  web:
+    build: .
+    container_name: access_control_api
+    command: >
+      sh -c "python manage.py migrate &&
+             gunicorn --bind 0.0.0.0:8000 --workers 4 access_control_api.wsgi:application"
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - ./db.sqlite3:/app/db.sqlite3
+      - ./system_events.log:/app/system_events.log
+    environment:
+      - DEBUG=1
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - db
+    networks:
+      - access_control_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/logs/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # database service 
+  db:
+    image: postgres:15-alpine
+    container_name: access_control_db
+    environment:
+      - POSTGRES_DB=access_control
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - access_control_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+
+networks:
+  access_control_network:
+    driver: bridge
