@@ -75,9 +75,9 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/django-backend:latest
-            ${{ secrets.DOCKER_USERNAME }}/django-backend:${{ github.sha }}
-          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/django-backend:latest
+            ${{ secrets.DOCKER_USERNAME }}/access_control_project_web:latest
+            ${{ secrets.DOCKER_USERNAME }}/access_control_project_web:${{ github.sha }}
+          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/access_control_project_web:latest
           cache-to: type=inline
 
       # Confirmation message
