@@ -55,6 +55,8 @@ Thumbs.db
 # Logs
 system_events.log
 *.log
+.coverage
+htmlcov/
 
 # Docker
 .dockerignore
