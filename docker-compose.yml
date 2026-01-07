@@ -1,54 +1,45 @@
-version: '3.8'
+
+version: "3.9"
 
 services:
-  # Django 
   web:
     build: .
-    container_name: access_control_api
-    command: >
-      sh -c "python manage.py migrate &&
-             gunicorn --bind 0.0.0.0:8000 --workers 4 access_control_api.wsgi:application"
-    ports:
-      - "8000:8000"
+    container_name: django_access_control
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
-      - ./db.sqlite3:/app/db.sqlite3
-      - ./system_events.log:/app/system_events.log
-    environment:
-      - DEBUG=1
-      - PYTHONUNBUFFERED=1
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
     depends_on:
-      - db
-    networks:
-      - access_control_network
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/api/logs/"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
+      # - db
+      - redis
 
-  # database service 
-  db:
-    image: postgres:15-alpine
-    container_name: access_control_db
-    environment:
-      - POSTGRES_DB=access_control
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=password123
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - access_control_network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U admin"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+  # db:
+  #   image: postgres:16
+  #   container_name: postgres_db
+  #   restart: always
+  #   environment:
+  #     POSTGRES_DB: ${DB_NAME}
+  #     POSTGRES_USER: ${DB_USER}
+  #     POSTGRES_PASSWORD: ${DB_PASSWORD}
+  #   # ports:
+  #     # - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
 
-volumes:
-  postgres_data:
+  redis:
+    image: redis:7
+    container_name: redis_access_control
+    restart: always
+    # ports:
+      # - "6379:6379"
 
-networks:
-  access_control_network:
-    driver: bridge
+# volumes:
+#   postgres_data:
+
+
+
+
+
