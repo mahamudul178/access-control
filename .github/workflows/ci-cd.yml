@@ -60,8 +60,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/django-backend:latest
-            ${{ secrets.DOCKER_USERNAME }}/django-backend:${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/django_access_control
+            ${{ secrets.DOCKER_USERNAME }}/django_access_control:${{ github.sha }}
 
       # Confirmation message
       - name: Image digest
