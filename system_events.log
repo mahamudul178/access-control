@@ -89,3 +89,14 @@
 [2026-01-06 16:53:23] - CREATE: Access log created for card C1001. Door: Main Entrance. Status: GRANTED.
 [2026-01-06 16:53:23] - CREATE: Access log created for card C1002. Door: Secure Room. Status: DENIED.
 [2026-01-06 16:53:23] - CREATE: Access log created for card C1001. Door: Main Entrance. Status: GRANTED.
+[2026-01-06 17:52:11] - CREATE: Access log created for card C1002. Door: Main Tecnique. Status: DENIED.
+[2026-01-06 17:53:00] - CREATE: Access log created for card C1002. Door: Back Door. Status: DENIED.
+[2026-01-06 17:53:10] - CREATE: Access log created for card C1001. Door: Lab Room. Status: GRANTED.
+[2026-01-06 17:53:27] - CREATE: Access log created for card C1003. Door: Main Entrance. Status: DENIED.
+[2026-01-06 17:57:39] - CREATE: Access log created for card C1001. Door: Main Entrance. Status: GRANTED.
+[2026-01-06 17:57:52] - CREATE: Access log created for card C1001. Door: Main Entrance. Status: GRANTED.
+[2026-01-06 17:58:04] - CREATE: Access log created for card C1001. Door: Main Entrance. Status: GRANTED.
+[2026-01-06 17:58:06] - CREATE: Access log created for card C1001. Door: Main Entrance. Status: GRANTED.
+[2026-01-06 17:58:07] - CREATE: Access log created for card C1001. Door: Main Entrance. Status: GRANTED.
+[2026-01-06 17:58:08] - CREATE: Access log created for card C1001. Door: Main Entrance. Status: GRANTED.
+[2026-01-06 17:58:29] - CREATE: Access log created for card C1001. Door: Main Entrance. Status: DENIED.
