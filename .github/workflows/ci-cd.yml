@@ -8,9 +8,8 @@ on:
     branches: [ development ]
 
 jobs:
-  # ===============================
   # Job 1: Test (migrations + unit tests)
-  # ===============================
+
   test:
     runs-on: ubuntu-latest
 
