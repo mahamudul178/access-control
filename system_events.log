@@ -944,3 +944,5 @@
 [2026-01-07 11:25:10] - CREATE: Access log created for card C1001. Door: Signal Test. Status: GRANTED.
 [2026-01-07 11:25:10] - CREATE: Access log created for card C1002. Door: Delete Test. Status: GRANTED.
 [2026-01-07 11:25:10] - DELETE: Access log (ID: 2) for card C1002 was deleted.
+[2026-01-07 11:45:08] - CREATE: Access log created for card C1001. Door: Main Entrance. Status: DENIED.
+[2026-01-07 11:45:19] - DELETE: Access log (ID: 2) for card C1002 was deleted.

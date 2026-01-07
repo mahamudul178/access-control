@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "b19969ec-56c1-4dfa-b28a-7e192d3dfbe3",
+		"name": "Access Control",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50656062",
+		"_collection_link": "https://mh1445156-3883529.postman.co/workspace/Mahmudul-Hasan's-Workspace~3e6fbb30-83c2-48fc-871b-7203a9ef6529/collection/50656062-b19969ec-56c1-4dfa-b28a-7e192d3dfbe3?action=share&source=collection_link&creator=50656062"
+	},
+	"item": [
+		{
+			"name": "Create log",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"card_id\": \"C1003\",\n  \"door_name\": \"Main Entrance\",\n  \"access_granted\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/logs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All logs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/api/logs/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update logs",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"card_id\": \"C1001\",\n  \"door_name\": \"Main Entrance - Updated\",\n  \"access_granted\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/logs/1/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete logs",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/api/logs/2/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stats",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"card_id\": \"C1003\",\n  \"door_name\": \"Main Entrance\",\n  \"access_granted\": false\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/logs/stats/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						"stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Denied Access",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/api/logs/denied_access/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						"denied_access",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search by Card_id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/api/logs/by_card/?card_id=C1001",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						"by_card",
+						""
+					],
+					"query": [
+						{
+							"key": "card_id",
+							"value": "C1001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search By_door",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/api/logs/by_door/?door_name=Main%20Entrance",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						"by_door",
+						""
+					],
+					"query": [
+						{
+							"key": "door_name",
+							"value": "Main%20Entrance"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Granted",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/api/logs/?access_granted=true",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						""
+					],
+					"query": [
+						{
+							"key": "access_granted",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Denied",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/api/logs/?access_granted=false",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						""
+					],
+					"query": [
+						{
+							"key": "access_granted",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/api/logs/?search=C1001",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						""
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "C1001"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
